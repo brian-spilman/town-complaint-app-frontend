@@ -2,11 +2,11 @@ import { Link } from "react-router-dom"
 import { Complaint } from "../api/project-requests"
 
 
-type ComplaintListProps = {
+type ComplaintsListProps = {
     complaints: Complaint[]
 }
 
-export function ComplaintsList(props: ComplaintListProps) {
+export function ComplaintsList(props: ComplaintsListProps) {
 
 
     return <>
