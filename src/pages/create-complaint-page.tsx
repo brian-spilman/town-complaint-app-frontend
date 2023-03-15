@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ComplaintForm, createComplaint } from "../api/project-requests";
 import { NavBar } from "../components/navbar";
@@ -14,7 +14,8 @@ export function CreateComplaintPage() {
 
     const navigate = useNavigate();
 
-    async function buttonHandler() {
+    async function buttonHandler(event: FormEvent<HTMLFormElement>) {
+        event.preventDefault();
         const newComplaint = await createComplaint(form);
         console.log(newComplaint);
         navigate("/");
@@ -25,10 +26,14 @@ export function CreateComplaintPage() {
         <NavBar/>
         <h3>Complaint Creation Form</h3>
 
-        <label htmlFor="description">Description:</label>
-        <input id="description" type="text" placeholder="ex: we need more town meetings" onChange={e => setForm({...form, description: e.target.value})}/>
-    
-        <button onClick={buttonHandler}>Add Complaint</button>
+        <form onSubmit={(e: FormEvent<HTMLFormElement>) => buttonHandler(e)}>
+
+            <label htmlFor="description">Description:</label>
+            <input id="description" required type="text" placeholder="ex: we need more town meetings" onChange={e => setForm({...form, description: e.target.value})}/>
+        
+            <button type="submit">Add Complaint</button>
+
+        </form>
     </>
 
 }

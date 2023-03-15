@@ -9,6 +9,7 @@ export function NavBar() {
         <ul>
             <li><Link to="/">Home</Link></li>
             <li><Link to="/createcomplaint">Create Complaint</Link></li>
+            <li><Link to="/createmeeting">Create Meeting</Link> </li>
         </ul>
     
     </>
