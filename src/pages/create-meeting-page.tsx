@@ -18,7 +18,7 @@ export function CreateMeetingPage() {
         event.preventDefault();
         const newMeeting = await createMeeting(form);
         console.log(newMeeting);
-        navigate("/");
+        navigate("/home");
     }
 
     return <>

@@ -18,7 +18,7 @@ export function CreateComplaintPage() {
         event.preventDefault();
         const newComplaint = await createComplaint(form);
         console.log(newComplaint);
-        navigate("/");
+        navigate("/home");
     }
 
     return <>

@@ -5,7 +5,9 @@ import { CreateComplaintPage } from './pages/create-complaint-page';
 import { CreateMeetingPage } from './pages/create-meeting-page';
 import { EditMeetingPage } from './pages/edit-meeting-page';
 import { HomePage } from './pages/home-page';
+import { LoginPage } from './pages/login-page';
 import { MeetingDetailsPage } from './pages/meeting-details-page';
+import { StartPage } from './pages/start-page';
 
 function App() {
 
@@ -14,7 +16,9 @@ function App() {
     <BrowserRouter>
       <Routes>
 
-        <Route path='/' element={<HomePage/>} />
+        <Route path='/' element={<StartPage/>} />
+        <Route path='/login' element={<LoginPage/>} />
+        <Route path='/home' element={<HomePage/>} />
         <Route path='/createcomplaint' element={<CreateComplaintPage/>} />
         <Route path='/createmeeting' element={<CreateMeetingPage/>} />
         <Route path='/editcomplaint/:complaintId' element={<EditComplaintPage/>} />
