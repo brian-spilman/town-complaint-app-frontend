@@ -52,7 +52,7 @@ export function EditMeetingPage() {
         const returnedMeeting = await updateMeeting(updatedMeeting);
         console.log(returnedMeeting);
 
-        navigate("/");
+        navigate("/home");
 
     }
 

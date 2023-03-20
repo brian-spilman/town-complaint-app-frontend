@@ -26,7 +26,7 @@ export function HomePage() {
         <img src="https://media3.giphy.com/media/j5PHGhZMNOMznyhYPT/giphy.gif?cid=6c09b95269a48a139abb5a6a54bc47432e706bc8e35a069e&rid=giphy.gif&ct=g" alt="itysl" />
         <h3>Complaints List:</h3>
         <ComplaintsList complaints={complaints} />
-        <h3>Meetings List:</h3>
+        <h3>Town Meetings:</h3>
         <MeetingsList meetings={meetings} />
     
     </>

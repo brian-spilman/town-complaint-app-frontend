@@ -46,8 +46,9 @@ export function MeetingDetailsPage() {
         <h3>Time: {convertDate(meeting.time)}</h3>
         <h3>Address: {meeting.address}</h3>
 
+        {localStorage.getItem("role") === "guest" ? <></> : <>
         <button onClick={editButton}>Edit Meeting Info</button>
-        <button onClick={deleteButton}>Delete Meeting</button>
+        <button onClick={deleteButton}>Delete Meeting</button> </> }
 
         <h3>Complaints to be dealt with: </h3>
         <ComplaintsList complaints={complaints} />

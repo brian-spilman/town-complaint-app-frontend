@@ -1,3 +1,4 @@
+import { SignInForm } from "../pages/login-page";
 
 export type Complaint = {
     complaint_id: number,
@@ -23,6 +24,13 @@ export type MeetingForm = {
     address: string,
     time: number,
     summary: string
+}
+
+export type AppUser = {
+    user_id: number,
+    username: string,
+    password: string,
+    role: string
 }
 
 export async function createComplaint(newComplaint: ComplaintForm): Promise<Complaint> {
@@ -123,5 +131,20 @@ export async function createMeeting(newMeeting: MeetingForm): Promise<Meeting> {
 
     const meeting: Meeting = await httpResponse.json();
     return meeting;
+
+}
+
+export async function loginUser(newLogin: SignInForm): Promise<AppUser> {
+
+    const httpResponse = await fetch("http://127.0.0.1:8080/login", {
+        method:"PATCH",
+        body:JSON.stringify(newLogin),
+        headers: {
+            "Content-Type":"application/json"
+        }
+    });
+
+    const appUser: AppUser = await httpResponse.json();
+    return appUser;
 
 }
