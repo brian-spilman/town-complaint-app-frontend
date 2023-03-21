@@ -14,13 +14,14 @@ export function NavBar() {
     
         {localStorage.getItem("role") === "guest" ? <h4>Welcome, guest</h4> : <h4>Welcome, Council Member {localStorage.getItem("username")}</h4>}
 
-        <ul>
-            
-            <li><Link to="/home">Home</Link></li>
-            {localStorage.getItem("role") === "guest" ? <li><Link to="/createcomplaint">Create Complaint</Link></li> : <></>}
-            {localStorage.getItem("role") === "guest" ? <></>: <li><Link to="/createmeeting">Create Meeting</Link> </li>}
-            <button onClick={logout}>Logout</button>
-        </ul>
+        <nav>
+            <ul>
+                <li><Link to="/home">Home</Link></li>
+                {localStorage.getItem("role") === "guest" ? <li><Link to="/createcomplaint">Create Complaint</Link></li> : <></>}
+                {localStorage.getItem("role") === "guest" ? <></>: <li><Link to="/createmeeting">Create Meeting</Link> </li>}
+                <button onClick={logout}>Logout</button>
+            </ul>
+        </nav>
     
     </>
 }

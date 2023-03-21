@@ -4,6 +4,8 @@ import { Complaint, deleteMeeting, getAllComplaints, getMeetingById, Meeting } f
 import { ComplaintsList } from "../components/complaints-list";
 import { NavBar } from "../components/navbar";
 import { convertDate } from "../util/date-util";
+import "../styles.css";
+
 
 
 export function MeetingDetailsPage() {
@@ -35,7 +37,7 @@ export function MeetingDetailsPage() {
     async function deleteButton() {
         const works: boolean = await deleteMeeting(meeting.meeting_id);
         console.log(works);
-        navigate("/");
+        navigate("/home");
     }
 
     return <>

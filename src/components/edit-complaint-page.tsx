@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { Complaint, getAllMeetings, getComplaintById, Meeting, updateComplaint } from "../api/project-requests";
 import { NavBar } from "./navbar";
-
+import "../styles.css";
 
 export function EditComplaintPage() {
 
@@ -30,6 +30,7 @@ export function EditComplaintPage() {
             const meetingsList = await getAllMeetings();
             setOldComplaint(complaint);
             setMeetings(meetingsList);
+            console.log(meetings);
         })();
     }, []);
 

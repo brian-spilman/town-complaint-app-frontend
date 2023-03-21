@@ -12,7 +12,7 @@ export function MeetingsList(props: MeetingsListProps) {
 
         <ul>
 
-            {props.meetings.map(m => <> <li key={m.meeting_id} >ID: {m.meeting_id}<br/>Meeting: <Link to={`/meetingdetails/${m.meeting_id}`} >{m.summary}</Link><br/>Address: {m.address}<br/>Time: {convertDate(m.time)}</li> </>)}
+            {props.meetings.map(m => <> <li key={m.meeting_id} >Meeting: <Link to={`/meetingdetails/${m.meeting_id}`} >{m.summary}</Link><br/>Address: {m.address}<br/>Time: {convertDate(m.time)}</li> </>)}
     
         </ul>
 
