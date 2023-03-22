@@ -33,9 +33,11 @@ export type AppUser = {
     role: string
 }
 
+const url = "http://127.0.0.1:8080/";
+
 export async function createComplaint(newComplaint: ComplaintForm): Promise<Complaint> {
 
-    const httpResponse = await fetch("http://127.0.0.1:8080/complaints", {
+    const httpResponse = await fetch(url + "complaints", {
         method:"POST",
         body:JSON.stringify(newComplaint),
         headers: {
@@ -50,7 +52,7 @@ export async function createComplaint(newComplaint: ComplaintForm): Promise<Comp
 
 export async function getAllComplaints(): Promise<Complaint[]>{
 
-    const httpResponse = await fetch("http://127.0.0.1:8080/complaints");
+    const httpResponse = await fetch(url + "complaints");
     const complaints: Complaint[] = await httpResponse.json();
     return complaints;
 
@@ -58,14 +60,14 @@ export async function getAllComplaints(): Promise<Complaint[]>{
 
 export async function getComplaintById(complaintId: number): Promise<Complaint>{
 
-    const httpResponse = await fetch("http://127.0.0.1:8080/complaints/" + complaintId);
+    const httpResponse = await fetch(url + "complaints/" + complaintId);
     const complaint: Complaint = await httpResponse.json();
     return complaint;
     
 }
 
 export async function updateComplaint(complaint: Complaint): Promise<Complaint> {
-    const httpResponse = await fetch("http://127.0.0.1:8080/complaints", {
+    const httpResponse = await fetch(url + "complaints", {
         method:"PUT",
         body:JSON.stringify(complaint),
         headers: {
@@ -79,7 +81,7 @@ export async function updateComplaint(complaint: Complaint): Promise<Complaint> 
 
 export async function getAllMeetings(): Promise<Meeting[]>{
 
-    const httpResponse = await fetch("http://127.0.0.1:8080/meetings");
+    const httpResponse = await fetch(url + "meetings");
     const meetings: Meeting[] = await httpResponse.json();
     return meetings;
 
@@ -87,14 +89,14 @@ export async function getAllMeetings(): Promise<Meeting[]>{
 
 export async function getMeetingById(meetingId: number): Promise<Meeting>{
 
-    const httpResponse = await fetch("http://127.0.0.1:8080/meetings/" + meetingId);
+    const httpResponse = await fetch(url + "meetings/" + meetingId);
     const meeting: Meeting = await httpResponse.json();
     return meeting;
     
 }
 
 export async function updateMeeting(meeting: Meeting): Promise<Meeting> {
-    const httpResponse = await fetch("http://127.0.0.1:8080/meetings", {
+    const httpResponse = await fetch(url + "meetings", {
         method:"PUT",
         body:JSON.stringify(meeting),
         headers: {
@@ -108,7 +110,7 @@ export async function updateMeeting(meeting: Meeting): Promise<Meeting> {
 
 export async function deleteMeeting(meetingId: number): Promise<boolean>{
 
-    const httpResponse = await fetch("http://127.0.0.1:8080/meetings/" + meetingId, {
+    const httpResponse = await fetch(url + "meetings/" + meetingId, {
         method:"DELETE",
         headers: {
             "Content-Type":"application/json"
@@ -121,7 +123,7 @@ export async function deleteMeeting(meetingId: number): Promise<boolean>{
 
 export async function createMeeting(newMeeting: MeetingForm): Promise<Meeting> {
 
-    const httpResponse = await fetch("http://127.0.0.1:8080/meetings", {
+    const httpResponse = await fetch(url + "meetings", {
         method:"POST",
         body:JSON.stringify(newMeeting),
         headers: {
@@ -136,7 +138,7 @@ export async function createMeeting(newMeeting: MeetingForm): Promise<Meeting> {
 
 export async function loginUser(newLogin: SignInForm): Promise<AppUser> {
 
-    const httpResponse = await fetch("http://127.0.0.1:8080/login", {
+    const httpResponse = await fetch(url + "login", {
         method:"PATCH",
         body:JSON.stringify(newLogin),
         headers: {

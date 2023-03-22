@@ -2,6 +2,8 @@ import { FormEvent, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { createMeeting, MeetingForm } from "../api/project-requests";
 import { NavBar } from "../components/navbar";
+import "../styles.css";
+
 
 
 export function CreateMeetingPage() {

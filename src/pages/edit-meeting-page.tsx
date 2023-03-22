@@ -3,6 +3,8 @@ import { useNavigate, useParams } from "react-router-dom";
 import { getMeetingById, Meeting, updateMeeting } from "../api/project-requests";
 import { NavBar } from "../components/navbar";
 import { convertDate } from "../util/date-util";
+import "../styles.css";
+
 
 
 export function EditMeetingPage() {

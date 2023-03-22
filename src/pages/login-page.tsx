@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { loginUser } from "../api/project-requests";
+import "../styles.css";
+
 
 export type SignInForm = {
     username: string,
@@ -21,11 +23,15 @@ export function LoginPage() {
 
     async function signInHandler() {
         const appUser = await loginUser({username: form.username, password: form.password});
-        if(appUser != null) {
+        if(!("error" in appUser)) {
             localStorage.setItem("username", appUser.username);
             localStorage.setItem("userId", appUser.user_id.toString());
             localStorage.setItem("role", "council");
             navigate("/home");
+        }else {
+            alert("Incorrect Username/Password");
+            console.log("ALERT BLOCK");
+            // window.alert("Incorrect Sign-In.\nPassword is Incorrect");
         }
     }
 
